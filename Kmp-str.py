@@ -1,5 +1,7 @@
 def getNext(str2):
 	'''位置数组，通过计算最长前后缀，确定回移的最小位置，加速计算'''
+	if len(str2) == 1:
+		return [-1]
 	k = -1 
 	nexts = [0 for i in range(len(str2))]
 	nexts[0] = -1
@@ -14,6 +16,8 @@ def getNext(str2):
 	return nexts
 
 def getIndex(str1,str2):
+	if str2 == None or str1 == None or  len(str2) < 1 or len(str1) < len(str2):
+		return -1
 	nexts = getNext(str2)
 	i1 = 0 
 	i2 = 0 
